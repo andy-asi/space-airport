@@ -10,12 +10,11 @@ export const initialState = {
 };
 
 export const fetchCapsules = createAsyncThunk('space/fetchCapsules', async () => {
-  const res = await axios.get('https://jsonsplaceholder.typicode.com/posts');
+  const res = await axios.get('https://jsonplaceholder.typicode.com/posts');
   return res.data;
 });
 
 export const fetchLandingPad = createAsyncThunk('space/fetchLandingPad', async (padId) => {
-  console.log(`https://jsonplaceholder.typicode.com/posts/${padId}`);
   const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${padId}`);
   return res.data;
 });

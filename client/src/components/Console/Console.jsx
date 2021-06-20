@@ -7,10 +7,12 @@ function Console() {
 
   if (status === "loading") return <ConsoleStyled><div>loading...</div></ConsoleStyled>;
   if (status === "failed") return <ConsoleStyled><div>{error}</div></ConsoleStyled>;
-  
+
   return (
     <ConsoleStyled>
-      {JSON.stringify(mode === "capsules" ? capsules : landingPad)}
+      <pre>
+        {JSON.stringify(mode === "capsules" ? capsules : landingPad, null, 2)}
+      </pre>
     </ConsoleStyled>
   )
 }
