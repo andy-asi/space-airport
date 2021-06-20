@@ -1,9 +1,9 @@
 import { combineReducers } from '@reduxjs/toolkit'
 
-import shipReducer from './ship';
+import spaceReducer from './space';
 
 const rootReducer = combineReducers({
-  shipState: shipReducer,
+  spaceState: spaceReducer,
 })
 
 export default rootReducer;

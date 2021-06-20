@@ -30,6 +30,10 @@ const store = configureStore({
     // devTools: process.env.NODE_ENV !== 'production',
 })
 
+if (process.env.NODE_ENV !== 'production' && module.hot) {
+    module.hot.accept('./slices', () => store.replaceReducer(rootReducer))
+  }
+
 // const store = createStore(
 //     slices,
 //     composeEnhancers(),
