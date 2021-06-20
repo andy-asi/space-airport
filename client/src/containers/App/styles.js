@@ -1,19 +1,29 @@
 import styled from 'styled-components';
 
+const Container = styled.div`
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const Application = styled.div`
-    font-family: Roboto;
-    font-weight: 300;
-    font-size: 25px;
-    font-style: italic;
-    color: white;
-    top: 20%;
-    position: absolute;
-    padding: 50px;
-    svg, span {
-        padding-left: 10px;
-    }
+  display: flex;
+  height: 50vh;
+  width: 50vw;
+  background-color: #FFFFFF;
+  flex-direction: column;
+  padding: 15px;
+
+  @media(max-width: 970px) {
+    height: 100vh;
+    width: 100vw;
+    flex-direction: row;
+  }
 `;
 
 export {
-    Application,
+  Container,
+  Application,
 };

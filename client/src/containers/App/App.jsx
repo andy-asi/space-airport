@@ -1,15 +1,18 @@
 import React from 'react';
 import GlobalStyle from '../../theme';
-import { Application } from './styles';
-import { ReactComponent as Rocket } from '../../assets/rocket.svg';
+import { Container, Application } from './styles';
+import Console from '../../components/Console/Console';
+import Control from '../../components/Control/Control';
 
 function App() {
   return (
     <>
-      <Application >
-        <Rocket />
-        <span>"Space isn't remote at all. It's only an hour's drive away, if your car could go straight upwards."</span>
-      </Application>
+      <Container>
+        <Application>
+          <Console />
+          <Control />
+        </Application>
+      </Container>
       <GlobalStyle />
     </>
   )
