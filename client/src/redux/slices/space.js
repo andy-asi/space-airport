@@ -10,12 +10,12 @@ export const initialState = {
 };
 
 export const fetchCapsules = createAsyncThunk('space/fetchCapsules', async () => {
-  const res = await axios.get('https://jsonplaceholder.typicode.com/posts');
+  const res = await axios.get('http://localhost:4000/capsules');
   return res.data;
 });
 
 export const fetchLandingPad = createAsyncThunk('space/fetchLandingPad', async (padId) => {
-  const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${padId}`);
+  const res = await axios.get(`http://localhost:4000/landing/${padId}`);
   return res.data;
 });
 
@@ -39,7 +39,7 @@ const spaceSlice = createSlice({
       .addMatcher(isAnyOf(fetchCapsules.pending, fetchLandingPad.pending), (state) => {
         state.status = 'loading';
       })
-      .addMatcher(isAnyOf(fetchCapsules.rejected, fetchCapsules.rejected), (state, { error }) => {
+      .addMatcher(isAnyOf(fetchCapsules.rejected, fetchLandingPad.rejected), (state, { error }) => {
         state.status = 'failed';
         state.error = error.message;
       })

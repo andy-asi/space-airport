@@ -8,16 +8,16 @@ function Control() {
   const dispatch = useDispatch();
   const [padInput, setPadInput] = useState("");
 
+  const landingPadClick = () => {
+    dispatch(fetchLandingPad(padInput));
+  }
+
   return (
     <ControlStyled>
-      <Capsules onClick={() => dispatch(fetchCapsules())}>
-        Capsules
-      </Capsules>
+      <Capsules onClick={() => dispatch(fetchCapsules())}>Capsules</Capsules>
       <Rocket />
-      <Input type="text" placeholder="text" value={padInput} onChange={(e) => setPadInput(e.target.value)} />
-      <LandingPad onClick={() => dispatch(fetchLandingPad(padInput))}>
-        LandingPad
-      </LandingPad>
+      <Input type="text" placeholder="Landing Pad ID" value={padInput} onChange={(e) => setPadInput(e.target.value)} size="15" />
+      <LandingPad onClick={landingPadClick}>Landing Pad</LandingPad>
     </ControlStyled>
   )
 }
