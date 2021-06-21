@@ -1,12 +1,13 @@
 import React from 'react';
-import { ConsoleStyled } from './styles';
+import { ConsoleStyled, Error } from './styles';
 import { useSelector } from 'react-redux';
 
 function Console() {
   const { capsules, status, error, mode, landingPad } = useSelector(state => state.spaceState);
 
-  if (status === "loading") return <ConsoleStyled><div>loading...</div></ConsoleStyled>;
-  if (status === "failed") return <ConsoleStyled><div>{error}</div></ConsoleStyled>;
+  if (status === "idle") return <ConsoleStyled><div>Click "Capsules" or enter landing pad (eg: LZ-4) then press "Landing Pad" to start.</div></ConsoleStyled>;
+  if (status === "loading") return <ConsoleStyled><div>Loading...</div></ConsoleStyled>;
+  if (status === "failed") return <ConsoleStyled><Error>{error}</Error></ConsoleStyled>;
 
   return (
     <ConsoleStyled>

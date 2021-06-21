@@ -14,9 +14,15 @@ const ConsoleStyled = styled.div`
 
   pre {
     white-space: pre-wrap;
+    margin: 0;
   }
+`;
+
+const Error = styled.p`
+  color: red;
 `;
 
 export {
   ConsoleStyled,
+  Error
 };

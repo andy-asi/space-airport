@@ -11,13 +11,13 @@ function Control() {
   const landingPadClick = () => {
     dispatch(fetchLandingPad(padInput));
   }
-
+  
   return (
     <ControlStyled>
       <Capsules onClick={() => dispatch(fetchCapsules())}>Capsules</Capsules>
       <Rocket />
       <Input type="text" placeholder="Landing Pad ID" value={padInput} onChange={(e) => setPadInput(e.target.value)} size="15" />
-      <LandingPad onClick={landingPadClick}>Landing Pad</LandingPad>
+      <LandingPad onClick={landingPadClick} disabled={/[#$%&]/.test(padInput)}>Landing Pad</LandingPad>
     </ControlStyled>
   )
 }

@@ -12,6 +12,10 @@ const ControlStyled = styled.div`
     height: 100%;
     width: 33.333%;
   }
+
+  @media(max-width: 500px) {
+    padding: 0 10px;
+  }
 `;
 
 const Capsules = styled.button`
@@ -20,11 +24,24 @@ const Capsules = styled.button`
   border-radius: 10px;
   border: 1px solid #999;
   cursor: pointer;
+
+  &:hover {
+    background-color: #DDD;
+  }
+
+  @media(max-width: 500px) {
+    width: 100%;
+    padding: 5px 12px;
+  }
 `;
 
 const Input = styled.input`
   padding: 0 10px;
   height: 30px;
+
+  @media(max-width: 500px) {
+    width: 100%;
+  }
 `;
 
 const LandingPad = styled.button`
@@ -33,6 +50,20 @@ const LandingPad = styled.button`
   border-radius: 10px;
   border: 1px solid #999;
   cursor: pointer;
+
+  &:hover {
+    background-color: #DDD;
+  }
+
+  &:disabled {
+    border: 1px solid #EEE;
+    cursor: not-allowed;
+  }
+
+  @media(max-width: 500px) {
+    width: 100%;
+    padding: 5px 12px;
+  }
 `;
 
 export {

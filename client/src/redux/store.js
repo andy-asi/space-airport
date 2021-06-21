@@ -1,42 +1,13 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 
-import rootReducer from './slices/index'
-
-// import { createStore, combineReducers, compose } from 'redux';
-
-// const { NODE_ENV } = process.env;
-// const isDevelopment = NODE_ENV === 'development';
-
-// const reducers = {
-//     spaceData: (oldState = {}, action) => {
-//         const { type } = action;
-//         switch (type) {
-//             default:
-//                 return oldState;
-//         }
-//     },
-// };
-
-// const slices = combineReducers({ ...reducers });
-
-// const composeEnhancers = isDevelopment && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-//     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ trace: true, traceLimit: 25 })
-//     : compose;
-
+import rootReducer from './slices/index';
 
 const store = configureStore({
-    reducer: rootReducer,
-    // middleware: [sagaMiddleware, ...getDefaultMiddleware({ thunk: false })],
-    // devTools: process.env.NODE_ENV !== 'production',
-})
+  reducer: rootReducer,
+});
 
 if (process.env.NODE_ENV !== 'production' && module.hot) {
-    module.hot.accept('./slices', () => store.replaceReducer(rootReducer))
-  }
-
-// const store = createStore(
-//     slices,
-//     composeEnhancers(),
-// );
+  module.hot.accept('./slices', () => store.replaceReducer(rootReducer))
+}
 
 export default store;
